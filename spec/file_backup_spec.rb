@@ -10,11 +10,11 @@ describe File do
 
     before do
       the_class.stub!(:backup_name).with(file).and_return(backup_file)
-      the_class.stub!(:move)
+      the_class.stub!(:rename)
     end
     after { the_class.backup(file) }
 
-    it { the_class.should_receive(:move).with(file, backup_file) }
+    it { the_class.should_receive(:rename).with(file, backup_file) }
 
     it { the_class.should_receive(:backup_name).with(file).and_return(backup_file) }
   end
