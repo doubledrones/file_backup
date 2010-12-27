@@ -9,14 +9,14 @@ describe File do
     let(:backup_file) { mock }
 
     before do
-      the_class.stub!(:backup_file).with(file).and_return(backup_file)
+      the_class.stub!(:backup_name).with(file).and_return(backup_file)
       the_class.stub!(:move)
     end
     after { the_class.backup(file) }
 
     it { the_class.should_receive(:move).with(file, backup_file) }
 
-    it { the_class.should_receive(:backup_file).with(file).and_return(backup_file) }
+    it { the_class.should_receive(:backup_name).with(file).and_return(backup_file) }
   end
 
   describe ".backup_name" do

@@ -2,7 +2,7 @@
 class File
 
   def self.backup(file)
-    move(file, backup_file(file))
+    move(file, backup_name(file))
   end
 
   private
